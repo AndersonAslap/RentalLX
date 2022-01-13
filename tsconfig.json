@@ -20,11 +20,12 @@
       ],
       "@utils/*": [
         "utils/*"
-      ],
+      ]
     },
     "resolveJsonModule": true,
     "outDir": "./dist",
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "esModuleInterop": true
   }
 }
