@@ -7,8 +7,13 @@
 # Cadastro de Carro
 
 **RF** <br>
+<<<<<<< HEAD
 Deve ser possível cadastrar um novo carro.<br>
 Deve ser possível listar todas as categorias.<br>
+=======
+Deve ser possível cadastrar um novo carro.
+Deve ser possível listar todas as categorias.
+>>>>>>> e92a26fbd27d9a55ab0d689a6cbcc2318038f0de
 
 **RN** <br>
 Não deve ser possível cadastrar um carro com uma placa já existente.<br>
@@ -63,7 +68,9 @@ Deve ser possível cadastrar um aluguel.<br>
 **RNF** <br>
 Ultilizar o multer para upload dos arquivos.<br>
 
+
 **RN** <br>
 O aluguel deve ter duração mínima de 24 horas.<br>
 Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.<br>
 Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.<br>
+
