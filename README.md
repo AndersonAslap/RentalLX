@@ -63,4 +63,5 @@ Ultilizar o multer para upload dos arquivos.<br>
 O aluguel deve ter duração mínima de 24 horas.<br>
 Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.<br>
 Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.<br>
+O usuário deve está logado na aplicação.<br>
 
