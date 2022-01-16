@@ -34,10 +34,17 @@ describe("Create Category Controller", () => {
       password: "admin",
     });
 
-    const response = await request(app).post("/categories").send({
-      name: "Category 1",
-      description: "Category Supertest",
-    });
+    const { token } = responseToken.body;
+
+    const response = await request(app)
+      .post("/categories")
+      .send({
+        name: "Category 1",
+        description: "Category Supertest",
+      })
+      .set({
+        Authorization: `Bearer ${token}`,
+      });
 
     expect(response.status).toBe(201);
   });
