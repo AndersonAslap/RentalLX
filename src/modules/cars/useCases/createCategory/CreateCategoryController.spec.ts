@@ -7,6 +7,7 @@ import { app } from "@shared/infra/http/app";
 import createConnection from "@shared/infra/typeorm";
 
 let connection: Connection;
+let token: string;
 
 describe("Create Category Controller", () => {
   beforeAll(async () => {
@@ -20,6 +21,13 @@ describe("Create Category Controller", () => {
       `insert into users(id, name, email, password, "isAdmin", created_at, driver_license)
         values('${id}', 'admin', 'admin@rentx.com.br', '${password}', true, 'now()', 'xxxxxxxx')`
     );
+
+    const responseToken = await request(app).post("/sessions").send({
+      email: "admin@rentx.com.br",
+      password: "admin",
+    });
+
+    token = responseToken.body.token;
   });
 
   afterAll(async () => {
@@ -28,13 +36,6 @@ describe("Create Category Controller", () => {
   });
 
   it("should be able to create a new category", async () => {
-    const responseToken = await request(app).post("/sessions").send({
-      email: "admin@rentx.com.br",
-      password: "admin",
-    });
-
-    const { token } = responseToken.body;
-
     const response = await request(app)
       .post("/categories")
       .send({
@@ -49,13 +50,6 @@ describe("Create Category Controller", () => {
   });
 
   it("should not be able to create a new category with name existent", async () => {
-    const responseToken = await request(app).post("/sessions").send({
-      email: "admin@rentx.com.br",
-      password: "admin",
-    });
-
-    const { token } = responseToken.body;
-
     const response = await request(app)
       .post("/categories")
       .send({
