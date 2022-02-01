@@ -15,7 +15,7 @@ describe("Create Car", () => {
   it("should be able to create a new car", async () => {
     const car = await createCarUseCase.execute({
       name: "Name car",
-      description: "Description Car",
+      description: "Description Car 1",
       daily_rate: 100,
       license_plate: "ABC-1234",
       fine_amount: 60,
