@@ -11,6 +11,158 @@
     },
 
     "paths": {
+
+        "/users":{
+            "post":{
+                "tags": ["Users"],
+                "summary": "Created User",
+                "description": "Created User",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/CreateUser"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "User already exists"
+                    }
+                }
+            }
+        },
+
+        "/sessions" : {
+            "post": {
+                "tags": ["Session"],
+                "summary": "Authentications user",
+                "description" : "Authentications user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type":"object",
+                                "properties": {
+                                    "email": {
+                                        "type":"string"
+                                    },
+                                    "password": {
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description":"success"
+                    },
+                    "400": {
+                        "description": "Email or password incorrect!"
+                    }
+                }
+            }
+        },
+
+        "/cars": {
+            "post": {
+                "tags": ["Cars"],
+                "summary": "Create a new car",
+                "description": "Create a new car",
+                "security":[
+                    { "bearerAuth" : [] }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Car"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Car alread exists!"
+                    }
+                }
+            }
+        },
+
+        "/cars/images/{id}": {
+            "post": {
+                "tags": ["Cars"],
+                "summary": "Upload images",
+                "description": "Upload images",
+                "security": [
+                    { "bearerAuth": [] }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Car id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type":"object",
+                                "properties": {
+                                    "images": {
+                                        "type":"array",
+                                        "items": {
+                                            "type":"string",
+                                            "format":"binary"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+        },
+
+        "/cars/available": {
+            "get": {
+                "tags": ["Cars"],
+                "summary": "List Cars Available",
+                "description": "List Cars Available",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/definitions/CarAvailable"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
         "/categories": {
             "post": {
                 "tags":["Category"],
@@ -120,7 +272,6 @@
             }
         },
 
-
         "/specifications": {
             "post": {
                 "tags":["Specification"],
@@ -129,112 +280,6 @@
                 "security": [
                     { "bearerAuth" : [] }
                 ]
-            }
-        },
-
-        "/sessions" : {
-            "post": {
-                "tags": ["Session"],
-                "summary": "Authentications user",
-                "description" : "Authentications user",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type":"object",
-                                "properties": {
-                                    "email": {
-                                        "type":"string"
-                                    },
-                                    "password": {
-                                        "type":"string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description":"success"
-                    },
-                    "400": {
-                        "description": "Email or password incorrect!"
-                    }
-                }
-            }
-        },
-
-        "/cars": {
-            "post": {
-                "tags": ["Cars"],
-                "summary": "Create a new car",
-                "description": "Create a new car",
-                "security":[
-                    { "bearerAuth" : [] }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/definitions/Car"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "Created"
-                    },
-                    "400": {
-                        "description": "Car alread exists!"
-                    }
-                }
-            }
-        },
-
-        "/cars/images/{id}": {
-            "post": {
-                "tags": ["Cars"],
-                "summary": "Upload images",
-                "description": "Upload images",
-                "security": [
-                    { "bearerAuth": [] }
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Car id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "type":"object",
-                                "properties": {
-                                    "images": {
-                                        "type":"array",
-                                        "items": {
-                                            "type":"string",
-                                            "format":"binary"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "Created"
-                    }
-                }
             }
         }
     },
@@ -251,6 +296,7 @@
                 }
             } 
         },
+
         "Car": {
             "type":"object",
             "properties":{
@@ -273,6 +319,63 @@
                     "type":"string"
                 },
                 "category_id": {
+                    "type": "string"
+                }
+            }
+        },
+
+        "CarAvailable": {
+            "type":"array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type":"string"
+                    },
+                    "available": {
+                        "type":"boolean"
+                    },
+                    "name": {
+                        "type":"string"
+                    },
+                    "description": {
+                        "type":"string"
+                    },
+                    "daily_rate": {
+                        "type":"string"
+                    },
+                    "license_plate": {
+                        "type":"string"
+                    },
+                    "fine_amount": {
+                        "type": "string"
+                    },
+                    "brand": {
+                        "type":"string"
+                    },
+                    "category_id": {
+                        "type":"string"
+                    },
+                    "created_at": {
+                        "type":"string"
+                    }
+                }
+            }
+        },
+
+        "CreateUser": {
+            "type":"object",
+            "properties": {
+                "name":{
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "driver_license": {
                     "type": "string"
                 }
             }
