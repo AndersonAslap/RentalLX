@@ -7,7 +7,7 @@ exports.UpdateUserAvatarController = void 0;
 
 var _tsyringe = require("tsyringe");
 
-var _UpdateUserAvatarUseCase = require("@modules/accounts/useCases/updateUserAvatar/UpdateUserAvatarUseCase");
+var _UpdateUserAvatarUseCase = require("./UpdateUserAvatarUseCase");
 
 class UpdateUserAvatarController {
   async handle(request, response) {

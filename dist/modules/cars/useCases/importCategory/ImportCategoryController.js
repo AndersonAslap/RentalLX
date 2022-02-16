@@ -7,7 +7,7 @@ exports.ImportCategoryController = void 0;
 
 var _tsyringe = require("tsyringe");
 
-var _ImportCategoryUseCase = require("@modules/cars/useCases/importCategory/ImportCategoryUseCase");
+var _ImportCategoryUseCase = require("./ImportCategoryUseCase");
 
 class ImportCategoryController {
   async handle(request, response) {

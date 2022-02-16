@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.CarImagesRepositoryInMemory = void 0;
 
-var _CarImage = require("@modules/cars/infra/typeorm/entities/CarImage");
+var _CarImage = require("../../infra/typeorm/entities/CarImage");
 
 class CarImagesRepositoryInMemory {
   constructor() {

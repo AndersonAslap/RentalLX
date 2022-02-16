@@ -7,7 +7,7 @@ exports.CreateUserController = void 0;
 
 var _tsyringe = require("tsyringe");
 
-var _CreateUserUseCase = require("@modules/accounts/useCases/createUser/CreateUserUseCase");
+var _CreateUserUseCase = require("./CreateUserUseCase");
 
 class CreateUserController {
   async handle(request, response) {

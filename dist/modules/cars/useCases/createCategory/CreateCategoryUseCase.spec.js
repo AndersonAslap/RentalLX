@@ -1,10 +1,10 @@
 "use strict";
 
-var _CategoriesRepositoryInMemory = require("@modules/cars/repositories/in-memory/CategoriesRepositoryInMemory");
+var _CategoriesRepositoryInMemory = require("../../repositories/in-memory/CategoriesRepositoryInMemory");
 
-var _CreateCategoryUseCase = require("@modules/cars/useCases/createCategory/CreateCategoryUseCase");
+var _CreateCategoryUseCase = require("./CreateCategoryUseCase");
 
-var _AppError = require("@shared/errors/AppError");
+var _AppError = require("../../../../shared/errors/AppError");
 
 let category;
 describe("Create Category", () => {

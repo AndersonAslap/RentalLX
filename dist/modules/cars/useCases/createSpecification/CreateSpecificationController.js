@@ -7,7 +7,7 @@ exports.CreateSpecificationController = void 0;
 
 var _tsyringe = require("tsyringe");
 
-var _CreateSpecificationUseCase = require("@modules/cars/useCases/createSpecification/CreateSpecificationUseCase");
+var _CreateSpecificationUseCase = require("./CreateSpecificationUseCase");
 
 class CreateSpecificationController {
   async handle(request, response) {

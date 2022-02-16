@@ -7,7 +7,7 @@ exports.CarImagesRepository = void 0;
 
 var _typeorm = require("typeorm");
 
-var _CarImage = require("@modules/cars/infra/typeorm/entities/CarImage");
+var _CarImage = require("../entities/CarImage");
 
 class CarImagesRepository {
   constructor() {

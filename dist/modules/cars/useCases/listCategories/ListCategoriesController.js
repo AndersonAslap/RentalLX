@@ -7,7 +7,7 @@ exports.ListCategoriesController = void 0;
 
 var _tsyringe = require("tsyringe");
 
-var _ListCategoryUseCase = require("@modules/cars/useCases/listCategories/ListCategoryUseCase");
+var _ListCategoryUseCase = require("./ListCategoryUseCase");
 
 class ListCategoriesController {
   async handle(request, response) {

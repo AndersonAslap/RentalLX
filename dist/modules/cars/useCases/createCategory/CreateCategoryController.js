@@ -7,7 +7,7 @@ exports.CreateCategoryController = void 0;
 
 var _tsyringe = require("tsyringe");
 
-var _CreateCategoryUseCase = require("@modules/cars/useCases/createCategory/CreateCategoryUseCase");
+var _CreateCategoryUseCase = require("./CreateCategoryUseCase");
 
 class CreateCategoryController {
   async handle(request, response) {

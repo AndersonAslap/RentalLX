@@ -9,19 +9,19 @@ var _express = require("express");
 
 var _multer = _interopRequireDefault(require("multer"));
 
-var _upload = _interopRequireDefault(require("@config/upload"));
+var _upload = _interopRequireDefault(require("../../../../config/upload"));
 
-var _CreateCarController = require("@modules/cars/useCases/createCar/CreateCarController");
+var _CreateCarController = require("../../../../modules/cars/useCases/createCar/CreateCarController");
 
-var _CreateCarSpecificationController = require("@modules/cars/useCases/createCarSpecification/CreateCarSpecificationController");
+var _CreateCarSpecificationController = require("../../../../modules/cars/useCases/createCarSpecification/CreateCarSpecificationController");
 
-var _listAvailableCarsController = require("@modules/cars/useCases/listAvailableCars/listAvailableCarsController");
+var _listAvailableCarsController = require("../../../../modules/cars/useCases/listAvailableCars/listAvailableCarsController");
 
-var _UploadCarImageController = require("@modules/cars/useCases/uploadCarImage/UploadCarImageController");
+var _UploadCarImageController = require("../../../../modules/cars/useCases/uploadCarImage/UploadCarImageController");
 
-var _ensureAdmin = require("@shared/infra/http/middlewares/ensureAdmin");
+var _ensureAdmin = require("../middlewares/ensureAdmin");
 
-var _ensureAuthenticated = require("@shared/infra/http/middlewares/ensureAuthenticated");
+var _ensureAuthenticated = require("../middlewares/ensureAuthenticated");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
